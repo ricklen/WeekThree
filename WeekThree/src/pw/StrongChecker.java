@@ -1,11 +1,12 @@
 package pw;
 
-public class BasicChecker implements Checker {
+public class StrongChecker extends BasicChecker {
 	
 	public static final String INITIAL = "JaapRick1";
 	
 	public boolean acceptable(String pass) {
-		if (pass.length() > 6 && pass.indexOf(" ") == -1) {
+		if (super.acceptable(pass) && Character.isLetter(pass.charAt(0))
+				&& Character.isDigit(pass.charAt(pass.length() - 1))) {
 			return true;
 		} else {
 			return false;
@@ -15,5 +16,6 @@ public class BasicChecker implements Checker {
 	public String generatePassword() {
 		return INITIAL;
 	}
+	
 
 }
