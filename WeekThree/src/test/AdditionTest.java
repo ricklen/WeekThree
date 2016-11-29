@@ -2,7 +2,7 @@ package test;
 
 import org.junit.Before;
 import org.junit.Test;
-import ss.week3.Addition;
+import operatorWithId.*;
 
 import static org.junit.Assert.assertEquals;
 
