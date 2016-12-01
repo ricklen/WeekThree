@@ -1,6 +1,6 @@
 package pw;
 
-public class StrongChecker extends BasicChecker {
+public class StrongChecker extends	 BasicChecker {
 	
 	public static final String INITIAL = "JaapRick1";
 	
@@ -13,5 +13,4 @@ public class StrongChecker extends BasicChecker {
 		return INITIAL;
 	}
 	
-
 }

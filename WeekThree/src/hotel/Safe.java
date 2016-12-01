@@ -2,7 +2,7 @@ package hotel;
 
 public class Safe {
 	
-	/*@ 	invariant pass.password != "" && pass.password != null;
+	/*@ 	private invariant pass.password != "" && pass.password != null;
 	 		public invariant isActive == true || isActive == false;
 			public invariant isOpen == true || isOpen == false;
 	 */

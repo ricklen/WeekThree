@@ -4,13 +4,17 @@ import pw.*;
 
 public class Password {
 	
-	public String password;
-	public Checker checker;
-	public String factoryPassword;
+	private long createTime;
+	
+	private String password;
+	private Checker checker;
+	private String factoryPassword;
+	
 	public static final String INITIAL = "JaapRick1"; // initial password value
 	
 	
 	public Password(Checker check) {
+		createTime = System.currentTimeMillis();
 		password = INITIAL; // capital letters because it's a constant ("final")
 		factoryPassword = INITIAL;
 		checker = check;
@@ -28,6 +32,10 @@ public class Password {
 	
 	public Checker getChecker() {
 		return checker;
+	}
+	
+	public long getCreateTime() {
+		return createTime;
 	}
 	
 	
@@ -48,6 +56,7 @@ public class Password {
 	public boolean setWord(String oldPass, String newPass) {
 		if (oldPass.equals(password) && acceptable(newPass)) {
 			password = newPass;
+			createTime = System.currentTimeMillis();
 			return true;
 		} else {
 			return false;
