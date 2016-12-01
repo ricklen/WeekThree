@@ -33,11 +33,7 @@ public class Password {
 	public Checker getChecker() {
 		return checker;
 	}
-	
-	public long getCreateTime() {
-		return createTime;
-	}
-	
+
 	
 	////// METHODS ////////////
 	
@@ -56,7 +52,6 @@ public class Password {
 	public boolean setWord(String oldPass, String newPass) {
 		if (oldPass.equals(password) && acceptable(newPass)) {
 			password = newPass;
-			createTime = System.currentTimeMillis();
 			return true;
 		} else {
 			return false;
