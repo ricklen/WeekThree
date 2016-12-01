@@ -2,6 +2,10 @@ package operatorWithId;
 
 public class Addition implements OperatorWithIdentity {
 	
+	public Addition(){
+		
+	}
+	
 	public int operate(int left, int right){
 		return left + right;
 	}

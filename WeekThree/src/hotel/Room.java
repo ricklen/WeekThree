@@ -20,7 +20,7 @@ public class Room {
      */
     public Room(int no) {
     	number = no;
-    	safe = new Safe("1234");
+    	safe = new Safe(Password.INITIAL);
     }
 
     // ------------------ Queries --------------------------
