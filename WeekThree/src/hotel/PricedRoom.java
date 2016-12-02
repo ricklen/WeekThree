@@ -19,5 +19,5 @@ public class PricedRoom extends Room implements Bill.Item {
 		
 		return s + b ;
 	}
-
+	
 }

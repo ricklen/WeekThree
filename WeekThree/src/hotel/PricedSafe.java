@@ -2,7 +2,7 @@ package hotel;
 
 public class PricedSafe extends Safe implements Bill.Item {
 	
-	double safePrice;
+	private double safePrice;
 	
 	public PricedSafe(double price) {
 		safePrice = price;
