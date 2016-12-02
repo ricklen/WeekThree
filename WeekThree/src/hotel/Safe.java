@@ -2,10 +2,10 @@ package hotel;
 
 public class Safe {
 	
-	/*@ 	private invariant pass.password != "" && pass.password != null;
-	 		public invariant isActive == true || isActive == false;
-			public invariant isOpen == true || isOpen == false;
-	 */
+//	/*@ 	private invariant pass.password != "" && pass.password != null;
+//	 		public invariant isActive == true || isActive == false;
+//			public invariant isOpen == true || isOpen == false;
+//	 */
 
 	Password pass;
 	public boolean isActive;
@@ -13,7 +13,7 @@ public class Safe {
 
 	// Constructor for the Safe Class with initial password
 	// @ requires password.indexOf(" ") == -1;
-	//@ requires password.length() > 14;
+	////@ requires password.length() > 14;
 	public Safe(String password) {
 		pass = new Password();
 		String initial = Password.INITIAL;

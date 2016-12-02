@@ -8,7 +8,5 @@ public class Formatter {
 
 	public static void main (String[] args){
 		printLine("bla", 2.10);
-		
 	}
-
 }
