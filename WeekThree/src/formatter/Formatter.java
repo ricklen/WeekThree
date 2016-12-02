@@ -1,5 +1,9 @@
 package formatter;
 
+import hotel.*;
+
+import java.io.PrintStream;
+
 public class Formatter {
 	
 	public static void printLine(String text, double price){
@@ -7,6 +11,22 @@ public class Formatter {
 	}
 
 	public static void main (String[] args){
-		printLine("bla", 2.10);
+		ItemBill x = new ItemBill("bla", 2.10);
+		ItemBill y = new ItemBill("hoi", 1.33);
+		ItemBill b = new ItemBill("rick", 1.90);
+		
+		PrintStream printstream = new PrintStream(System.in);
+		
+		//System.out.("Huh", 256);
+		printstream.append(x.toString());
+		printstream.append(y.toString());
+		printstream.append(b.toString());
+		printstream.append(printLine("bla",2.10));
+		
+		printstream.println();;
+		
+
+		
+		//printLine("bla", 2.10);
 	}
 }
