@@ -15,15 +15,22 @@ public class Formatter {
 		ItemBill y = new ItemBill("hoi", 1.33);
 		ItemBill b = new ItemBill("rick", 1.90);
 		
-		PrintStream printstream = new PrintStream(System.in);
+		PrintStream printstream = new PrintStream(System.out, true);
 		
+		//PrintStream ps = new PrintStream()
 		//System.out.("Huh", 256);
 		printstream.append(x.toString());
 		printstream.append(y.toString());
 		printstream.append(b.toString());
 		printstream.append(printLine("bla",2.10));
 		
-		printstream.println();;
+		printstream.println();
+		
+		System.out.println("\n");
+		
+		Bill rick = new Bill(printstream);
+		
+		
 		
 
 		
