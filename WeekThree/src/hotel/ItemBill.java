@@ -14,10 +14,11 @@ public class ItemBill implements Bill.Item {
 	}
 	
 	public String toString() {
-		String s = String.format("%-10.10s", text);
-		String b = String.format("%10.2f", amount);
+		String s = String.format("%-30.30s", text);
+		String b = String.format("%20.2f", amount);
 		
-		return s + b + "\n";
+		
+		return s + b ;
 				
 	}
 
