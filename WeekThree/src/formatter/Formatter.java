@@ -22,13 +22,13 @@ public class Formatter {
 		printstream.append(x.toString());
 		printstream.append(y.toString());
 		printstream.append(b.toString());
-		printstream.append(printLine("bla",2.10));
+		//printstream.append(printLine("bla",2.10));
 		
 		printstream.println();
 		
 		System.out.println("\n");
 		
-		Bill rick = new Bill(printstream);
+		//Bill rick = new Bill(printstream);
 		
 		
 		

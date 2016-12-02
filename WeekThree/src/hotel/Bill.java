@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Bill{
 	
-	PrintStream printstream = new PrintStream(System.out, true);
+	PrintStream printstream;
 	double BillSum;
 	
 	public interface Item {
@@ -21,13 +21,13 @@ public class Bill{
 	
 	// print the sum of the bill on the outputstream
 	public void close() {
-		System.out.println(getSum());
+		printstream.println(getSum());
 		
 	}
 	
 	//add an item to the bill
 	public void newItem(Bill.Item item) {
-		printstream.append(item.toString());
+		printstream.println(item.toString());
 		BillSum = BillSum + item.getAmount();
 	}
 	

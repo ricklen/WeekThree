@@ -3,8 +3,8 @@ package test;
 
 import org.junit.Before;
 import org.junit.Test;
-import ss.week3.hotel.Bill;
-import ss.week3.hotel.PricedSafe;
+import hotel.Bill;
+import hotel.PricedSafe;
 
 import static org.junit.Assert.*;
 

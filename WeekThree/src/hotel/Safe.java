@@ -21,6 +21,10 @@ public class Safe {
 		isOpen = false;
 	}
 	
+	public Safe(){
+		this(Password.INITIAL);
+	}
+	
 	//@ ensures \result == isActive; 
 	//@ pure
 	public boolean getActive() {
