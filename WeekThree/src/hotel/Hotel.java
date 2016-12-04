@@ -5,45 +5,47 @@ import java.io.PrintStream;
 public class Hotel {
 	private String name;
 	public PricedRoom room1;
-	public PricedRoom room2;
+	public Room room2;
 	private Password password;
-	private PrintStream printstream;
+	//private PrintStream printstream;
 	
 	public Hotel(String hotelName) {
 		this.name = hotelName;
 		this.room1 = new PricedRoom(1, 2.00, 10.00);
-		this.room2 = new PricedRoom(2);
+		this.room2 = new Room(2);
 		this.password = new Password();
 	}
 	
 	
 	public Bill getBill(String guestname, int nights, PrintStream ps) {
+		Bill newBill = new Bill(ps);
 		if (room1.getGuest() != null
 				&& room1.getGuest().getName() == guestname) {
-			double roomprice = room1.getAmount() * nights;
-			double safeprice = 0;
 			
+			//PricedRoom billroom = new PricedRoom(room1.getNumber(), room1.getAmount() * nights, 0.0 );
+			
+
 			if (room1.getSafe() instanceof Bill.Item) {
 				Bill.Item safe = (Bill.Item) room1.getSafe();
-				safeprice = safe.getAmount();
+				//safeprice = safe.getAmount();
+			
+				PricedRoom billroom = new PricedRoom(room1.getNumber(), room1.getAmount() * nights, safe.getAmount());
+				newBill.newItem(billroom);
+				newBill.newItem(safe);
+				
+			} else {
+				PricedRoom billroom = new PricedRoom(room1.getNumber(), room1.getAmount() * nights, 0.0 );
+				newBill.newItem(billroom);
 			}
 			
-			double price = roomprice + safeprice;
+			return newBill;
 			
-		} else if (room2.getGuest() != null
-				&& room2.getGuest().getName() == guestname) {
-			double roomprice = room2.getAmount() * nights;
-			double safeprice = 0;
-			
-			if (room1.getSafe() instanceof Bill.Item) {
-				Bill.Item safe = (Bill.Item) room2.getSafe();
-				safeprice = safe.getAmount();
-			}
-			double price = roomprice + safeprice;
-		} else {
-			return null;
-		}
-	}
+		} 
+		else return null;
+		
+}
+
+
 	
 	//@ requires pass != null && guestname != null;
 	/* @ ensures this.getPassword().testWord(pass) && this.getFreeRoom() != null
@@ -125,8 +127,8 @@ public class Hotel {
 	//@ ensures \result != null;
 	//@ pure
 	public String toString() {
-		System.out.println(room1.toString());
-		System.out.println(room2.toString());
+		//System.out.println(room1.toString());
+		//System.out.println(room2.toString());
 		return  room1.toString() + room2.toString();
 	}
 	

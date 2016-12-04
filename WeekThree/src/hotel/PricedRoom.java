@@ -14,7 +14,7 @@ public class PricedRoom extends Room implements Bill.Item {
 	}
 	
 	public String toString() {
-		String s = String.format("%-10.10s", "Safe");
+		String s = String.format("%-10.10s", "PricedRoom");
 		String b = String.format("%10.2f", roomPrice);
 		
 		return s + b ;
