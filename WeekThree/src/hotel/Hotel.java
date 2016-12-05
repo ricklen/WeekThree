@@ -5,43 +5,39 @@ import java.io.PrintStream;
 public class Hotel {
 	private String name;
 	public PricedRoom room1;
-	public Room room2;
+	public PricedRoom room2;
 	private Password password;
 	//private PrintStream printstream;
 	
 	public Hotel(String hotelName) {
 		this.name = hotelName;
 		this.room1 = new PricedRoom(1, 2.00, 10.00);
-		this.room2 = new Room(2);
+		this.room2 = new PricedRoom(2, 5, 10);
 		this.password = new Password();
 	}
 	
 	
 	public Bill getBill(String guestname, int nights, PrintStream ps) {
 		Bill newBill = new Bill(ps);
-		if (room1.getGuest() != null
-				&& room1.getGuest().getName() == guestname) {
-			
-			//PricedRoom billroom = new PricedRoom(room1.getNumber(), room1.getAmount() * nights, 0.0 );
-			
+		
+		PricedRoom r = getRoom(guestname);
+		
+		if (r != null && r.getSafe() instanceof Bill.Item) {
+			Bill.Item safe = (Bill.Item) r.getSafe();
 
-			if (room1.getSafe() instanceof Bill.Item) {
-				Bill.Item safe = (Bill.Item) room1.getSafe();
-				//safeprice = safe.getAmount();
+			PricedRoom billroom = new PricedRoom(r.getNumber(), r.getAmount(), safe.getAmount());
 			
-				PricedRoom billroom = new PricedRoom(room1.getNumber(), room1.getAmount() * nights, safe.getAmount());
-				newBill.newItem(billroom);
-				newBill.newItem(safe);
-				
-			} else {
-				PricedRoom billroom = new PricedRoom(room1.getNumber(), room1.getAmount() * nights, 0.0 );
-				newBill.newItem(billroom);
+			newBill.newItem(safe);
+			
+			for (int i = 0; i < nights; i ++) {
+				newBill.newItem(billroom);	
 			}
-			
+			newBill.close();
 			return newBill;
-			
-		} 
-		else return null;
+			} else {
+				return null;
+			}
+	
 		
 }
 
@@ -108,7 +104,7 @@ public class Hotel {
 	//@ ensures (room1.getGuest() != null && room1.getGuest().getName().equals(guestname)) ==> \result == room1;
 	//@ ensures (room2.getGuest() != null && room2.getGuest().getName().equals(guestname)) ==> \result == room2;
 	//@ pure
-	public Room getRoom(String guestname) {
+	public PricedRoom getRoom(String guestname) {
 		if (room1.getGuest() != null && room1.getGuest().getName().equals(guestname)) {
 			return room1;
 		} else if (room2.getGuest() != null && room2.getGuest().getName().equals(guestname)) {

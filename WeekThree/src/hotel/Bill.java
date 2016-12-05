@@ -2,14 +2,14 @@ package hotel;
 
 import java.io.*;
 
-public class Bill{
+public class Bill {
 	
 	PrintStream printstream;
 	double BillSum;
 	
 	public interface Item {
 		public double getAmount();
-		public String toString();
+		//public String toString();
 	}
 	
 	// Constructor
@@ -28,7 +28,7 @@ public class Bill{
 	//add an item to the bill
 	public void newItem(Bill.Item item) {
 		printstream.println(item.toString());
-		BillSum = BillSum + item.getAmount();
+		BillSum += item.getAmount();
 	}
 	
 	// get the total value of a bill

@@ -7,7 +7,7 @@ import java.io.PrintStream;
 public class Formatter {
 	
 	public static void printLine(String text, double price){
-		System.out.printf("%-10.10s %10.2f", text, price);
+		System.out.printf("%-10.10s %10.2f \n", text, price);
 	}
 
 	public static void main (String[] args){
@@ -26,13 +26,16 @@ public class Formatter {
 //		
 //		printstream.println();
 //		
-//		System.out.println("\n");
+//		
 //		
 		PrintStream printstreamb = new PrintStream(System.out,true);
 		
 		Hotel k = new Hotel("bart");
 		k.checkIn("JaapRick1", "Rick");
 		k.getBill("Rick", 2, printstreamb);
+		
+//		printLine("Testobject", 324.23);
+//		printLine("TestobjectTwee", 34.23);
 		
 		//Bill rick = new Bill(printstream);
 		
